@@ -1,0 +1,37 @@
+<div class="row no-gutters" style="margin-top: 20vh;">
+    <div class="col-1 col-lg-4 col-sm-1"></div>
+
+    <div class="col-8 col-lg-4 col-sm-10">
+        <form class="form" [formGroup]="formGroup">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Email" formControlName="email">
+                <mat-error *ngIf="email.hasError('email')&&!email.hasError('required')">
+                    Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="email.hasError('required')">
+                    <strong>Please enter your email</strong>
+                </mat-error>
+            </mat-form-field>
+        </form>
+
+        <form class="form" [formGroup]="formGroup">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Password" formControlName="password" [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="password.hasError('required')"><strong>Please enter your password</strong></mat-error>
+            </mat-form-field>
+        </form>
+
+
+        <button mat-raised-button color="primary">Login</button>
+        <a href="#" style="padding: 10%;">Forgot password?</a>
+        <img src="../../../assets/pictures/search.svg" alt="Google Login" style="height:5%; cursor: pointer;"
+            (click)="googleLogin()">
+
+    </div>
+
+    <div class="col-1 col-lg-4 col-sm-1"></div>
+</div>
