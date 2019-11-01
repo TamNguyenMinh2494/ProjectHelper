@@ -1,10 +1,21 @@
 <mat-toolbar class="mat-elevation-z6">
     <mat-toolbar-row>
         <span>Project Helper</span>
+        <span style="flex:auto;"></span>
+        <!--<div *ngIf="!isUserLoggedin()">
+            <button mat-button (click)="googleLogin()">Sign In</button>
+        </div>
+        <div *ngIf="isUserLoggedin()">
+            <img src="{{item.photoURL}}"/>
+        </div>-->
+        <div id="btnLog">
+            <a [routerLink]="'/signin'" (click)="signinClick()" routerLinkActive="active" id="btnSignin">
+                <button mat-button>Sign In</button>
+            </a>
+            <a [routerLink]="'/signup'" (click)="signupClick()" routerLinkActive="active" id="btnSignup">
+                <button mat-button mat-raised-button>Sign Up</button>
+            </a>
+        </div>
     </mat-toolbar-row>
-    <div>
-        <button mat-button>
-            <img src="../../../assets/pictures/search.svg">
-        </button>
-    </div>
+
 </mat-toolbar>
