@@ -3,6 +3,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { MatIcon } from '@angular/material/icon';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-navigation',
@@ -14,41 +15,20 @@ export class NavigationComponent implements OnInit {
   selectedVal: string;
   responseMessage = '';
   responseMessageType = '';
-  userDetails: any;
+  userDetails = null;
 
   constructor(
     public userAuth: AuthenticationService,
     private route: Router,
-    private authService: AuthenticationService
+    private authService: AngularFireAuth,
   ) {
     this.selectedVal = 'login';
+    authService.user.subscribe(usr => this.userDetails = usr);
   }
 
   ngOnInit() {
   }
 
-  // Login with Google account
-
-  googleLogin() {
-    this.authService.loginWithGoogle()
-      .then(res => {
-        console.log(res);
-        this.showMessage('Success', 'Successfully logged in with Google');
-        this.isUserLoggedin();
-      }, err => {
-        this.showMessage('Danger', err.message);
-      });
-  }
-  showMessage(type, msg) {
-    this.responseMessageType = type;
-    this.responseMessage = msg;
-    setTimeout(() => {
-      this.responseMessage = '';
-    }, 2000);
-  }
-  isUserLoggedin() {
-    this.userDetails = this.authService.isUserLoggedin();
-  }
   signinClick() {
     this.route.navigate(['/signin']);
   }
