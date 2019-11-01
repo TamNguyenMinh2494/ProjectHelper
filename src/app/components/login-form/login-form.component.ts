@@ -52,17 +52,17 @@ export class LoginFormComponent implements OnInit {
       });
   }
 
+  // show warning when success or fail to login
   showMessage(type, msg) {
     this.responseMessageType = type;
     this.responseMessage = msg;
     setTimeout(() => {
       this.responseMessage = '';
-    }, 2000);
+    }, 2000); // stop 2s to view message
   }
   isUserLoggedin() {
     this.userDetails = this.authService.isUserLoggedin();
   }
-
 
 
 
