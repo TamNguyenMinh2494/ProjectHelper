@@ -1,33 +1,47 @@
-.login-wrapper{
-    padding: 10%;
+
+.signup-wrapper{
+    padding: 5%;
+    width: 60%;
+    flex: 2;
+    margin: 0 auto;
+    justify-items: center;
 }
-.login-wrapper .example-form{
-    min-width:100%;
-    max-width:300px;
+
+.box{
     width:100%;
-    
+    background:#fff;
+    border-radius:10px;
 }
-.login-wrapper .example-full-width,.login-wrapper .btn-block{
+.signup-wrapper form{
+    // min-width:100%;
+    // max-width:300px;
     width:100%;
 }
-.login-wrapper mat-card-header{
+.full-width{
+    width: 100%;
+    color: white;
+}
+
+
+
+.signup-wrapper mat-card-header{
     text-align:center;
-    width: fit-content;
+    width:100%;
     display:block;
     font-weight:700;
 }
-.login-wrapper mat-card-header mat-card-title{
-    font-size:30px;
-    margin:0;
+
+.signup-wrapper mat-card-header mat-card-title{
+    font-size: 200%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
 }
-.login-wrapper .mat-card{
-    padding:40px 70px 50px;
-}
-.login-wrapper {
+
+.signup-wrapper .mat-stroked-button{
+    width: 100%;
     border:1px solid currentColor;
-    line-height:54px;
-    background:#FFF7FA;
-}
-.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix{
-    padding:0.8375em 0;
+    line-height:50px;
+    //background:#ffce44;
+    border-radius: 25px;
+    margin-top: 20px;
 }
