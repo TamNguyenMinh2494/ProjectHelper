@@ -1,10 +1,82 @@
-.form {
-  width: 100%;
-  }
+.login-form{
+  display: flex;
   
-.full-width {
+}
+
+
+.login-wrapper{
+  padding: 5%;
+  width: 10%;
+  flex-direction: row;
+  flex: 2;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.box{
+  width:100%;
+  background:#fff;
+  border-radius:10px;
+}
+.login-wrapper form{
+  width:100%;
+}
+.full-width{
   width: 100%;
+  color: white;
 }
-button{
-  margin: auto;
+
+.login-wrapper mat-card-header{
+  text-align:center;
+  width:100%;
+  display:block;
+  font-weight:700;
 }
+
+.login-wrapper mat-card-header mat-card-title{
+  font-size: 200%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: black;
+}
+
+.signin-wrapper{
+  display: flex;
+  padding-top: 20px;
+}
+.btnLogin{
+  // background:#ffce44;
+  border: 1px solid currentColor;
+  width: 70%;
+  height: 50px;
+  border-radius: 25px;
+  margin-right: 10%;
+}
+.iconGG{
+  justify-content: center;
+  margin-top: 100px;
+  margin-right: 10%;
+  width: 10%;
+  height: 10%;
+  align-items: center;
+}
+
+// .login-wrapper .mat-stroked-button{
+//   width: 100%;
+//   border:1px solid currentColor;
+//   line-height:50px;
+//   background:#ffce44;
+//   border-radius: 25px;
+// }
+
+
+
+// .form {
+//   width: 100%;
+//   }
+  
+// .full-width {
+//   width: 100%;
+// }
+// button{
+//   margin: auto;
+// }

@@ -1,4 +1,54 @@
-<div class="row no-gutters" style="margin-top: 20vh;">
+<div class="login-form">
+    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card-header>
+            <mat-card-title>Login</mat-card-title>
+        </mat-card-header>
+
+        <form class="form" [formGroup]="formGroup">
+
+            <mat-card-content>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Email*" formControlName="email">
+                    <mat-error *ngIf="email.hasError('email')&&!email.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="email.hasError('required')">
+                        <strong>Please enter your email</strong>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Password*" formControlName="password"
+                        [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="password.hasError('required')"><strong>Please enter your password</strong>
+                    </mat-error>
+                </mat-form-field>
+
+            </mat-card-content>
+            <div class="signin-wrapper">
+                <button class="btnLogin" mat-stroked-button color="accent">Login</button>
+                <a href="#">Forgot password?</a>
+
+            </div>
+
+        </form>
+    </div>
+
+    <img class="iconGG" src="../../../assets/pictures/search.svg" alt="Google Login" style="cursor: pointer;"
+        (click)="googleLogin()">
+
+</div>
+
+
+
+
+
+
+<!-- <div class="row no-gutters" style="margin-top: 20vh;">
     <div class="col-1 col-lg-4 col-sm-1"></div>
 
     <div class="col-8 col-lg-4 col-sm-10">
@@ -32,4 +82,4 @@
             (click)="googleLogin()">
     </div>
     <div class="col-1 col-lg-4 col-sm-1"></div>
-</div>
+</div> -->
