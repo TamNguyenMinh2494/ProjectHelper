@@ -36,4 +36,8 @@ export class NavigationComponent implements OnInit {
     this.route.navigate(['/signup']);
   }
 
+  googleLogout() {
+    this.userAuth.logout();
+  }
+
 }
