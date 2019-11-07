@@ -20,4 +20,8 @@ export class AuthenticationService {
   isUserLoggedin() {
     return JSON.parse(localStorage.getItem('user'));
   }
+
+  async logout() {
+    return await this.angularFireAuth.auth.signOut();
+  }
 }
