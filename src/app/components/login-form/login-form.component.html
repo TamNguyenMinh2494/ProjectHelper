@@ -1,12 +1,14 @@
-<div class="login-form">
-    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
-        <mat-card-header>
-            <mat-card-title>Login</mat-card-title>
-        </mat-card-header>
+<!-- Material form login -->
+<mat-card class="login-form">
+    <div>
+        <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+            <mat-card-header>
+                <mat-card-title>Login</mat-card-title>
+            </mat-card-header>
 
-        <form class="form" [formGroup]="formGroup">
+            <form class="form" [formGroup]="formGroup">
 
-            <mat-card-content>
+
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Email*" formControlName="email">
                     <mat-error *ngIf="email.hasError('email')&&!email.hasError('required')">
@@ -28,21 +30,19 @@
                     </mat-error>
                 </mat-form-field>
 
-            </mat-card-content>
-            <div class="signin-wrapper">
-                <button class="btnLogin" mat-stroked-button color="accent">Login</button>
+
+
                 <a href="#">Forgot password?</a>
+                <button class="btnLogin" mat-stroked-button color="accent">Login</button>
 
-            </div>
-
-        </form>
+                <mat-card style="width: auto;cursor: pointer;" (click)="googleLogin()">
+                    <img class="iconGG" src="../../../assets/pictures/search.svg" alt="Google Login">
+                    <span style="padding-left: 10%;">Google</span>
+                </mat-card>
+            </form>
+        </div>
     </div>
-
-    <img class="iconGG" src="../../../assets/pictures/search.svg" alt="Google Login" style="cursor: pointer;"
-        (click)="googleLogin()">
-
-</div>
-
+</mat-card>
 
 
 
