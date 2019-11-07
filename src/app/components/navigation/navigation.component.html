@@ -15,7 +15,11 @@
                     <button mat-button>Sign In</button>
                 </a>
                 <a [routerLink]="'/signup'" (click)="signupClick()" routerLinkActive="active" id="btnSignup">
-                    <button mat-button mat-raised-button>Sign Up</button>
+                    <button mat-button>Sign Up</button>
+                </a>
+                <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active"
+                    id="btncreateAProject">
+                    <button mat-button mat-raised-button color="Accent">Create A Project</button>
                 </a>
             </div>
 
@@ -36,7 +40,7 @@
                     </div>
                     <div (click)="googleLogout()">
                         <img src="https://image.flaticon.com/icons/svg/1250/1250678.svg"
-                            style="width: 25px; height: 25px;" />
+                            style="width: 25px; height: 25px; margin-left: 5%;" />
                         <button mat-button>Sign out</button>
 
                     </div>

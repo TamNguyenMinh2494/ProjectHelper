@@ -36,6 +36,10 @@ export class NavigationComponent implements OnInit {
     this.route.navigate(['/signup']);
   }
 
+  createAProjectClick() {
+    this.route.navigate(['/createAProject']);
+  }
+
   googleLogout() {
     this.userAuth.logout();
   }

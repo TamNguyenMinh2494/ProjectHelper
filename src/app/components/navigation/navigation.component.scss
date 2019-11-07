@@ -6,7 +6,7 @@ mat-toolbar-row {
   position: fixed;
 }
 
-#btnSignin{
+#btnSignin, #btnSignup{
   width: 50px;
   height: 50px;
   color: #ffffff;
@@ -37,6 +37,8 @@ mat-toolbar-row {
   height: 50px;
   border-radius: 25px;
   margin-right: 10px;
+  margin-left: 20%;
+  word-wrap: break-word;
 }
 
 
