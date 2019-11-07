@@ -66,6 +66,7 @@ mat-card{
   width: 300px;
   margin: 10% auto;
 }
+
 .full-width {
   width: 100%;
   // min-width: 300px;
@@ -77,7 +78,7 @@ mat-card{
 
 mat-card-header{
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-weight: 100pt;
+  // font-weight: 100pt;
   display: flex;
   justify-content: center;
 }
