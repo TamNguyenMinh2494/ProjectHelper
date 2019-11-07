@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule, MatToolbar } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 // Using for login form
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -16,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 // Firebase service
 import { AngularFireModule } from '@angular/fire';
@@ -49,12 +51,14 @@ import { SignupComponent } from './components/signup/signup.component';
     MatToolbarModule,
     MatToolbarModule,
     MatCardModule,
+    MatCheckboxModule,
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
+    MatMenuModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
