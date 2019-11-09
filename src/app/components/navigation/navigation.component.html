@@ -25,27 +25,31 @@
 
             <!--Đăng nhập rồi, hiện ảnh đại diện thôi-->
             <div *ngIf="userDetails!=null">
-                <button mat-button [matMenuTriggerFor]="menu" id="btnPhoto">
+                <button mat-button [matMenuTriggerFor]="menu" id="btnPhoto" style="height: 50px; width: 50px;">
                     <img class="userLoggedin" [src]="userDetails.photoURL" alt="" />
                 </button>
 
                 <!--Bấm vào ảnh đại diện, hiện thông tin-->
                 <mat-menu #menu="matMenu" xPosition="before">
-                    <div id="userInfo">
-                        <img [src]="userDetails.photoURL " alt="" />
-                        <div>
-                            <p>{{ userDetails.displayName }}</p>
-                            <p>{{ userDetails.email }}</p>
+                    <div style="width: 300px;">
+                        <div id="userInfo">
+                            <img [src]="userDetails.photoURL " alt="" style="margin: 0 auto;" />
+                            <div style="margin-top: 5%;">
+                                <p style="text-align:center;"><b>{{ userDetails.displayName }}</b></p>
+                                <p style="text-align:center; word-wrap: break-word;">
+                                    {{ userDetails.email }}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div (click)="googleLogout()">
-                        <img src="https://image.flaticon.com/icons/svg/1250/1250678.svg"
-                            style="width: 25px; height: 25px; margin-left: 5%;" />
-                        <button mat-button>Sign out</button>
+                        <div (click)="googleLogout()" style="margin-left: 5%;">
+                            <img src="https://image.flaticon.com/icons/svg/1250/1250678.svg"
+                                style="width: 25px; height: 25px;" />
+                            <button mat-button>Sign out</button>
 
+                        </div>
                     </div>
                 </mat-menu>
             </div>
+
         </div>
     </mat-toolbar-row>
 
