@@ -31,7 +31,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
-import { CreateAProjectComponent } from './create-aproject/create-aproject.component';
+//import { CreateAProjectComponent } from './create-aproject/create-aproject.component';
 
 
 
@@ -44,7 +44,7 @@ import { CreateAProjectComponent } from './create-aproject/create-aproject.compo
     ProfileComponent,
     SigninComponent,
     SignupComponent,
-    CreateAProjectComponent
+    //CreateAProjectComponent
   ],
   imports: [
     BrowserModule,
