@@ -15,7 +15,7 @@ export class LoginFormComponent implements OnInit {
   selectedVal: string;
   responseMessage = '';
   responseMessageType = '';
-  userDetails: any;
+  // userDetails: any;
 
   formGroup = new FormGroup(
     {
@@ -28,7 +28,8 @@ export class LoginFormComponent implements OnInit {
       ])
     });
   constructor(
-    private route: Router,
+    public userDetails: AuthenticationService,
+    private router: Router,
     private authService: AuthenticationService
   ) {
     this.selectedVal = 'login';
@@ -39,30 +40,28 @@ export class LoginFormComponent implements OnInit {
   get email() { return this.formGroup.get('email'); }
   get password() { return this.formGroup.get('password'); }
 
-  // Login with Google account
+  // // Login with Google account
 
-  googleLogin() {
-    this.authService.loginWithGoogle()
-      .then(res => {
-        console.log(res);
-        this.showMessage('Success', 'Successfully logged in with Google');
-        this.isUserLoggedin();
-      }, err => {
-        this.showMessage('Danger', err.message);
-      });
-  }
+  // googleLogin() {
+  //   this.authService.loginWithGoogle()
+  //     .then(res => {
+  //       console.log(res);
+  //       this.showMessage('Success', 'Successfully logged in with Google');
+  //       this.router.navigate(['home']);
+  //     }, err => {
+  //       this.showMessage('Danger', err.message);
+  //     });
+  // }
 
-  // show warning when success or fail to login
-  showMessage(type, msg) {
-    this.responseMessageType = type;
-    this.responseMessage = msg;
-    setTimeout(() => {
-      this.responseMessage = '';
-    }, 2000); // stop 2s to view message
-  }
-  isUserLoggedin() {
-    this.userDetails = this.authService.isUserLoggedin();
-  }
+  // // show warning when success or fail to login
+  // showMessage(type, msg) {
+  //   this.responseMessageType = type;
+  //   this.responseMessage = msg;
+  //   setTimeout(() => {
+  //     this.responseMessage = '';
+  //   }, 2000); // stop 2s to view message
+  // }
+
 
 
 
