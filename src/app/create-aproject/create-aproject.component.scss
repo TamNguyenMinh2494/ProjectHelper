@@ -1,6 +1,7 @@
 mat-card{
     max-width: 100%;
-  display: flex;
+//   display: flex;
+//   flex-direction: row;
   padding: 16px;
   margin: 20px;
   border-radius: 5px;
@@ -8,15 +9,15 @@ mat-card{
 }
 
 mat-card-header{
-    display: flex;
-    flex-direction: row;
     color: #0F9D58;
     font-size: 5vh;
 }
 
 mat-card-content{
-    display: flex;
-    flex-direction: row;
+    width: 100%;
+}
+
+mat-slider{
     width: 100%;
 }
 mat-card-content mat-form-field{

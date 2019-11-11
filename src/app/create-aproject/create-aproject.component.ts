@@ -31,6 +31,7 @@ export class CreateAProjectComponent implements OnInit {
   step = 20000;
   // tslint:disable-next-line: member-ordering
   thumbLabel = false;
+
   value = null;
 
 }
