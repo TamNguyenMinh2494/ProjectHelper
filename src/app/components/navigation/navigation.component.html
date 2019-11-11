@@ -2,20 +2,15 @@
     <mat-toolbar-row>
         <span>Project Helper</span>
         <span style="flex:auto;"></span>
-        <!--<div *ngIf="!isUserLoggedin()">
-            <button mat-button (click)="googleLogin()">Sign In</button>
-        </div>
-        <div *ngIf="isUserLoggedin()">
-            <img src="{{item.photoURL}}"/>
-        </div>-->
+
         <div id="btnLog">
             <!--Chưa có ai đăng nhập thì hiện nút cho đăng nhập / đăng ký-->
             <div *ngIf="userDetails == null">
                 <a [routerLink]="'/signin'" (click)="signinClick()" routerLinkActive="active" id="btnSignin">
-                    <button mat-button>Sign In</button>
+                    <button mat-button style="outline: none;">Sign In</button>
                 </a>
                 <a [routerLink]="'/signup'" (click)="signupClick()" routerLinkActive="active" id="btnSignup">
-                    <button mat-button>Sign Up</button>
+                    <button mat-button style="outline: none;">Sign Up</button>
                 </a>
                 <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active"
                     id="btncreateAProject">
@@ -25,7 +20,8 @@
 
             <!--Đăng nhập rồi, hiện ảnh đại diện thôi-->
             <div *ngIf="userDetails!=null">
-                <button mat-button [matMenuTriggerFor]="menu" id="btnPhoto" style="height: 50px; width: 50px;">
+                <button mat-button [matMenuTriggerFor]="menu" id="btnPhoto"
+                    style="height: 50px; width: 50px; outline: none;">
                     <img class="userLoggedin" [src]="userDetails.photoURL" alt="" />
                 </button>
 
@@ -49,7 +45,6 @@
                     </div>
                 </mat-menu>
             </div>
-
         </div>
     </mat-toolbar-row>
 
