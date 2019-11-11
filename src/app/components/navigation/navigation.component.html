@@ -2,18 +2,16 @@
     <mat-toolbar-row>
         <span>Project Helper</span>
         <span style="flex:auto;"></span>
-
         <div id="btnLog">
             <!--Chưa có ai đăng nhập thì hiện nút cho đăng nhập / đăng ký-->
             <div *ngIf="userDetails == null">
                 <a [routerLink]="'/signin'" (click)="signinClick()" routerLinkActive="active" id="btnSignin">
-                    <button mat-button style="outline: none;">Sign In</button>
+                    <button mat-button>Sign In</button>
                 </a>
                 <a [routerLink]="'/signup'" (click)="signupClick()" routerLinkActive="active" id="btnSignup">
-                    <button mat-button style="outline: none;">Sign Up</button>
+                    <button mat-button>Sign Up</button>
                 </a>
-                <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active"
-                    id="btncreateAProject">
+                <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active">
                     <button mat-button mat-raised-button color="Accent">Create A Project</button>
                 </a>
             </div>
@@ -24,7 +22,9 @@
                     style="height: 50px; width: 50px; outline: none;">
                     <img class="userLoggedin" [src]="userDetails.photoURL" alt="" />
                 </button>
-
+                <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active">
+                    <button mat-button mat-raised-button color="Accent" id="btncreateAProject">Create A Project</button>
+                </a>
                 <!--Bấm vào ảnh đại diện, hiện thông tin-->
                 <mat-menu #menu="matMenu" xPosition="before">
                     <div style="padding: 10px 20px 10px 20px">

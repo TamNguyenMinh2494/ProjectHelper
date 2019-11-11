@@ -24,16 +24,15 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
-// Auth service
-import { AuthenticationService } from '../app/services/authentication.service';
-
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CreateAProjectComponent } from './create-aproject/create-aproject.component';
 
-
+// Using for createAProject
+import { MatSelectModule } from '@angular/material/select';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
   declarations: [
@@ -63,6 +62,8 @@ import { CreateAProjectComponent } from './create-aproject/create-aproject.compo
     MatMenuModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    MatSelectModule,
+    MatSliderModule
   ],
   // entryComponents: [LoginFormComponent],
   entryComponents: [HomeComponent], providers: [],

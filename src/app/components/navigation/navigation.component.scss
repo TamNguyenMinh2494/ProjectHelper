@@ -6,6 +6,10 @@ mat-toolbar-row {
   position: fixed;
 }
 
+button{
+  outline: none;
+}
+
 #btnSignin, #btnSignup{
   width: 50px;
   height: 50px;
@@ -46,4 +50,7 @@ mat-toolbar-row {
   outline: none;
 }
 
+#btncreateAProject{
+  margin-left: 5px;
+}
 
