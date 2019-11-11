@@ -1,0 +1,27 @@
+mat-card{
+    max-width: 100%;
+  display: flex;
+  padding: 16px;
+  margin: 20px;
+  border-radius: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+mat-card-header{
+    display: flex;
+    flex-direction: row;
+    color: #0F9D58;
+    font-size: 5vh;
+}
+
+mat-card-content{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+mat-card-content mat-form-field{
+    width: 100%;
+    display: inline;
+}
+
+
