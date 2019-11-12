@@ -11,6 +11,7 @@ mat-card{
 mat-card-header{
     color: #0F9D58;
     font-size: 5vh;
+    justify-content: center;
 }
 
 mat-card-content{
@@ -21,7 +22,6 @@ mat-slider{
     width: 100%;
 }
 mat-card-content mat-form-field{
-    width: 100%;
     display: inline;
 }
 
