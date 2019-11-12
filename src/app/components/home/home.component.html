@@ -1,3 +1,6 @@
 <div>
     <app-navigation></app-navigation>
+    <div *ngFor="let requirement of requirements">
+        <app-requirement-details [requirement]="requirement"></app-requirement-details>
+    </div>
 </div>
