@@ -1,6 +1,6 @@
 <mat-toolbar class="mat-elevation-z6">
     <mat-toolbar-row>
-        <span>Project Helper</span>
+        <span style="cursor: pointer;" (click)="titleClick()">Project Helper</span>
         <span style="flex:auto;"></span>
         <div id="btnLog">
             <!--Chưa có ai đăng nhập thì hiện nút cho đăng nhập / đăng ký-->
@@ -11,9 +11,9 @@
                 <a [routerLink]="'/signup'" (click)="signupClick()" routerLinkActive="active" id="btnSignup">
                     <button mat-button>Sign Up</button>
                 </a>
-                <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active">
+                <!-- <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active">
                     <button mat-button mat-raised-button color="Accent">Create A Project</button>
-                </a>
+                </a> -->
             </div>
 
             <!--Đăng nhập rồi, hiện ảnh đại diện thôi-->

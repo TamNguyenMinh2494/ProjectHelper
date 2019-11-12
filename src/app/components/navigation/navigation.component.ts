@@ -19,7 +19,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     public userAuth: AuthenticationService,
-    private route: Router,
+    private router: Router,
     private authService: AngularFireAuth,
   ) {
     this.selectedVal = 'login';
@@ -28,16 +28,19 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
   }
+  titleClick() {
+    this.router.navigate(['home']);
+  }
 
   signinClick() {
-    this.route.navigate(['/signin']);
+    this.router.navigate(['/signin']);
   }
   signupClick() {
-    this.route.navigate(['/signup']);
+    this.router.navigate(['/signup']);
   }
 
   createAProjectClick() {
-    this.route.navigate(['/createAProject']);
+    this.router.navigate(['/createAProject']);
   }
 
   googleLogout() {
