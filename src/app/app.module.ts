@@ -33,6 +33,8 @@ import { CreateAProjectComponent } from './create-aproject/create-aproject.compo
 // Using for createAProject
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { RequirementDetailsComponent } from './components/requirement-details/requirement-details.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { MatSliderModule } from '@angular/material/slider';
     ProfileComponent,
     SigninComponent,
     SignupComponent,
-    CreateAProjectComponent
+    CreateAProjectComponent,
+    RequirementDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,10 +66,12 @@ import { MatSliderModule } from '@angular/material/slider';
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     MatSelectModule,
-    MatSliderModule
+    MatSliderModule,
+    AngularFirestoreModule,
   ],
   // entryComponents: [LoginFormComponent],
-  entryComponents: [HomeComponent], providers: [],
+  entryComponents: [HomeComponent],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
