@@ -18,18 +18,11 @@
                     <mat-option value="{{i}}" *ngFor="let i of jobsTitle">{{i}}</mat-option>
                 </mat-select>
             </mat-form-field>
-            <!--Chưa làm được, bực quá à-->
-            <!-- <mat-form-field>
-                <mat-slider thumbLabel [displayWith]="formatLabel" [min]="min" [max]="max" [step]="step"
-                    [(ngModel)]="price" [ngModelOptions]="{standalone: true}">
-                </mat-slider>
-
-                <input matInput type="number" placeholder="Value" [(ngModel)]="requirement.price" name="price" />
-
-            </mat-form-field> -->
-
             <mat-form-field>
-                <input matInput type="number" placeholder="Value" [(ngModel)]="requirement.price" name="price" />
+                <mat-select placeholder="Price" [(ngModel)]="requirement.price" name="price">
+                    <mat-option value="{{i}}" *ngFor="let i of Price">{{i}}</mat-option>
+                </mat-select>
+                <!-- <input matInput type="number" placeholder="Price" [(ngModel)]="requirement.price" name="price" /> -->
             </mat-form-field>
         </mat-card-content>
 
