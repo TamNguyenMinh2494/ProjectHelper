@@ -1,6 +1,25 @@
+<app-navigation></app-navigation>
+<div *ngIf="requirements == undefined">
+    <section>
+        <div class='sk-three-bounce'>
+            <div class='sk-bounce-1 sk-child'></div>
+            <div class='sk-bounce-2 sk-child'></div>
+            <div class='sk-bounce-3 sk-child'></div>
+        </div>
+    </section>
+    <!-- <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field> -->
+</div>
 <div>
-    <app-navigation></app-navigation>
-    <div *ngFor="let requirement of requirements">
-        <app-requirement-details [requirement]="requirement"></app-requirement-details>
+    <div>
+
+    </div>
+    <div *ngIf="requirements != undefined">
+        <div *ngFor="let requirement of requirements">
+            <app-requirement-details [requirement]="requirement"></app-requirement-details>
+        </div>
+        <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+        </mat-paginator>
     </div>
 </div>

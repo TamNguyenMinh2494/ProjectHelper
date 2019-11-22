@@ -28,4 +28,11 @@ export class HomeComponent implements OnInit {
       this.requirements = requirements;
     });
   }
+  // tslint:disable-next-line: use-lifecycle-interface
+
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.requirements.filter = filterValue;
+  }
 }
