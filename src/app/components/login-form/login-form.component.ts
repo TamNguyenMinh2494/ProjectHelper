@@ -12,10 +12,9 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LoginFormComponent implements OnInit {
 
   hide = true;
-  selectedVal: string;
-  responseMessage = '';
-  responseMessageType = '';
-  // userDetails: any;
+  // selectedVal: string;
+  // responseMessage = '';
+  // responseMessageType = '';
 
   formGroup = new FormGroup(
     {
@@ -29,40 +28,13 @@ export class LoginFormComponent implements OnInit {
     });
   constructor(
     public userDetails: AuthenticationService,
-    private router: Router,
-    private authService: AuthenticationService
   ) {
-    this.selectedVal = 'login';
+    // this.selectedVal = 'login';
   }
 
   ngOnInit() {
   }
   get email() { return this.formGroup.get('email'); }
   get password() { return this.formGroup.get('password'); }
-
-  // // Login with Google account
-
-  // googleLogin() {
-  //   this.authService.loginWithGoogle()
-  //     .then(res => {
-  //       console.log(res);
-  //       this.showMessage('Success', 'Successfully logged in with Google');
-  //       this.router.navigate(['home']);
-  //     }, err => {
-  //       this.showMessage('Danger', err.message);
-  //     });
-  // }
-
-  // // show warning when success or fail to login
-  // showMessage(type, msg) {
-  //   this.responseMessageType = type;
-  //   this.responseMessage = msg;
-  //   setTimeout(() => {
-  //     this.responseMessage = '';
-  //   }, 2000); // stop 2s to view message
-  // }
-
-
-
 
 }
