@@ -36,6 +36,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import { RequirementDetailsComponent } from './components/requirement-details/requirement-details.component';
 
+// Using for Home
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +72,8 @@ import { RequirementDetailsComponent } from './components/requirement-details/re
     MatSelectModule,
     MatSliderModule,
     AngularFirestoreModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   // entryComponents: [LoginFormComponent],
   entryComponents: [HomeComponent],

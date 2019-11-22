@@ -3,7 +3,7 @@ export class Requirement {
     title: string;
     description: string;
     type: string;
-    price: number;
+    price: string;
     accepted: true;
     ownerId: string;
 }

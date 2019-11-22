@@ -12,9 +12,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class NavigationComponent implements OnInit {
 
-  selectedVal: string;
-  responseMessage = '';
-  responseMessageType = '';
   userDetails = null;
 
   constructor(
@@ -22,7 +19,6 @@ export class NavigationComponent implements OnInit {
     private router: Router,
     private authService: AngularFireAuth,
   ) {
-    this.selectedVal = 'login';
     authService.user.subscribe(usr => this.userDetails = usr);
   }
 
