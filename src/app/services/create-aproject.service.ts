@@ -14,9 +14,6 @@ export class CreateAProjectService {
 
   constructor(private db: AngularFirestore, private afAuth: AngularFireAuth) {
     this.requirementRef = db.collection(this.dbPath);
-    afAuth.user.subscribe((usr) => {
-      this.dbPath += '/' + usr.uid;
-    });
   }
 
   createRequirement(requirement: Requirement): void {
