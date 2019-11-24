@@ -1,5 +1,6 @@
 <div *ngIf="requirement">
-    <mat-card style="position: inherit;border-color:crimson; margin-top: 5px;">
+    <mat-card>
+        <div mat-card-avatar class="avatarRequirement"></div>
         <mat-card-header>{{requirement.title}}</mat-card-header>
         <mat-card-content>
             <p>Description: {{requirement.description}}</p>

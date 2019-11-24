@@ -1,0 +1,10 @@
+.avatarRequirement{
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+}
+
+mat-card{
+    position: inherit;
+    max-width: 100%;
+    margin: 10px;
+}
