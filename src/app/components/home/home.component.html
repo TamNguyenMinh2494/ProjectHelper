@@ -11,11 +11,13 @@
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
     </mat-form-field> -->
 </div>
-<div>
-    <div>
-
+<div class="home-wrapper" *ngIf="requirements != undefined">
+    <div class="checkbox-wrapper">
+        <mat-card class="checkbox-card">
+            <mat-checkbox *ngFor="let i of checkBox">{{i}}</mat-checkbox>
+        </mat-card>
     </div>
-    <div *ngIf="requirements != undefined">
+    <div class="requirement-wrapper">
         <div *ngFor="let requirement of requirements">
             <app-requirement-details [requirement]="requirement"></app-requirement-details>
         </div>

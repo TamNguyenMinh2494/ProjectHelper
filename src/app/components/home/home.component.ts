@@ -35,4 +35,6 @@ export class HomeComponent implements OnInit {
     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
     this.requirements.filter = filterValue;
   }
+
+  checkBox = ['All', 'Website', 'Application', 'Design', 'Video', 'Marketing'];
 }

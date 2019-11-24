@@ -1,6 +1,6 @@
   .sk-three-bounce {
     width: 8em;
-    margin: auto;
+    margin: 20% auto;
     text-align: center;
     justify-content: center;
   }
@@ -43,5 +43,29 @@
               transform: scale(1);
     }
   }
+.home-wrapper{
+  display: flex;
+}
+.checkbox-wrapper{
+  width: 15%;
+  position: inherit;
+  display: flex;
+  flex-direction: column;
+  margin: 15% 5% 0 5%;
+  word-wrap: break-word;
+  align-content: center;
+}
+.checkbox-card{
+  width: 100%;
+  padding: 10%;
+  position: inherit;
+  display: flex;
+  flex-direction: column;
+}
+.requirement-wrapper{
+  width: 80%;
+  justify-content: center;
+}
+
 
   
