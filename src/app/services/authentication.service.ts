@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { auth } from 'firebase/app';
 import { User } from '../model/user';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -46,5 +47,9 @@ export class AuthenticationService {
       this.user = null;
     });
     this.router.navigate(['home']);
+  }
+
+  async signup(email: string, password: string) {
+    await this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
 }
