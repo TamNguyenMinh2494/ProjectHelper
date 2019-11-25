@@ -34,12 +34,14 @@ import { CreateAProjectComponent } from './create-aproject/create-aproject.compo
 import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
-import { RequirementDetailsComponent } from './components/requirement-details/requirement-details.component';
 
 // Using for Home
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { ReqUpdateFormComponent } from './components/req-update-form/req-update-form.component';
 
+//Req-Update-Form
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +52,7 @@ import { MatTableModule } from '@angular/material/table';
     SigninComponent,
     SignupComponent,
     CreateAProjectComponent,
-    RequirementDetailsComponent
+    ReqUpdateFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSliderModule,
     AngularFirestoreModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   // entryComponents: [LoginFormComponent],
   entryComponents: [HomeComponent],
