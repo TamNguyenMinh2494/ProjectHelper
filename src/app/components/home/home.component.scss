@@ -46,6 +46,7 @@
   }
 .home-wrapper{
   display: flex;
+  margin-top: 10px;
 }
 .checkbox-wrapper{
   width: 15%;
@@ -55,6 +56,9 @@
   margin: 15% 5% 0 5%;
   word-wrap: break-word;
   align-content: center;
+}
+.mat-checkbox-input{
+  background-color: #0F9D58;
 }
 #checkbox-card{
   width: 100%;
@@ -82,4 +86,10 @@ table {
 td, th {
   width: 25%;
   padding: 5%;
+}
+mat-paginator{
+  width: 95%;
+  color: white;
+  font: 1em bold;
+  background-color: #0F9D58;
 }
