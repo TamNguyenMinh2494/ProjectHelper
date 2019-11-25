@@ -1,3 +1,4 @@
+//scss for waiting
   .sk-three-bounce {
     width: 8em;
     margin: 20% auto;
@@ -55,7 +56,7 @@
   word-wrap: break-word;
   align-content: center;
 }
-.checkbox-card{
+#checkbox-card{
   width: 100%;
   padding: 10%;
   position: inherit;
@@ -67,5 +68,18 @@
   justify-content: center;
 }
 
+//design table
+table {
+  width: 95%;
+  word-break: break-word;
+}
 
-  
+.mat-form-field {
+  font-size: 14px;
+  width: 95%;
+}
+
+td, th {
+  width: 25%;
+  padding: 5%;
+}

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CreateAProjectService } from '../../services/create-aproject.service';
 import { map } from 'rxjs/operators';
+import { Requirement } from '../../model/requirement';
+import { MatTableDataSource } from '@angular/material/table';
+import { pipe } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -14,27 +17,19 @@ export class HomeComponent implements OnInit {
   constructor(private requirementService: CreateAProjectService) { }
 
   ngOnInit() {
-    this.getRequirementList();
+    this.requirementService.getAllRequirements().subscribe(res => this.dataSource = new MatTableDataSource(res));
   }
 
-  getRequirementList() {
-    this.requirementService.getRequirementList().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(i =>
-          ({ key: i.payload.doc.id, ...i.payload.doc.data() })
-        )
-      )
-    ).subscribe(requirements => {
-      this.requirements = requirements;
-    });
-  }
-  // tslint:disable-next-line: use-lifecycle-interface
+  displayedColumns: string[] = ['Title', 'Type', 'Price', 'Description'];
+
+  dataSource = new MatTableDataSource();
 
   applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.requirements.filter = filterValue;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   checkBox = ['All', 'Website', 'Application', 'Design', 'Video', 'Marketing'];
+
+
+
 }
