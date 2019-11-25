@@ -12,7 +12,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LoginFormComponent implements OnInit {
 
   hide = true;
-
   formGroup = new FormGroup(
     {
       email: new FormControl('', [
@@ -25,11 +24,21 @@ export class LoginFormComponent implements OnInit {
     });
   constructor(
     public userDetails: AuthenticationService,
-  ) {}
+    private router: Router
+  ) { }
 
   ngOnInit() {
   }
   get email() { return this.formGroup.get('email'); }
   get password() { return this.formGroup.get('password'); }
 
+  async loginUser() {
+    await this.userDetails.login(this.email.value, this.password.value)
+      .then(res => {
+        console.log(res);
+        this.router.navigate(['home']);
+      }, err => {
+        console.log(err.message);
+      });
+  }
 }

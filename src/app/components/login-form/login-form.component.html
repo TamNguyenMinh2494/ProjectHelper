@@ -7,8 +7,6 @@
             </mat-card-header>
 
             <form class="form" [formGroup]="formGroup">
-
-
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Email*" formControlName="email">
                     <mat-error *ngIf="email.hasError('email')&&!email.hasError('required')">
@@ -30,10 +28,8 @@
                     </mat-error>
                 </mat-form-field>
 
-
-
                 <a href="#">Forgot password?</a>
-                <button class="btnLogin" mat-stroked-button color="accent">Login</button>
+                <button class="btnLogin" mat-stroked-button color="accent" (click)="loginUser()">Login</button>
 
                 <mat-card style="width: auto;cursor: pointer;" (click)="userDetails.loginWithGoogle()">
                     <img class="iconGG" src="../../../assets/pictures/search.svg" alt="Google Login">
