@@ -52,4 +52,8 @@ export class AuthenticationService {
   async signup(email: string, password: string) {
     await this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password);
   }
+
+  async login(email: string, password: string) {
+    return await this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
+  }
 }
