@@ -12,9 +12,6 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LoginFormComponent implements OnInit {
 
   hide = true;
-  // selectedVal: string;
-  // responseMessage = '';
-  // responseMessageType = '';
 
   formGroup = new FormGroup(
     {
@@ -28,9 +25,7 @@ export class LoginFormComponent implements OnInit {
     });
   constructor(
     public userDetails: AuthenticationService,
-  ) {
-    // this.selectedVal = 'login';
-  }
+  ) {}
 
   ngOnInit() {
   }
