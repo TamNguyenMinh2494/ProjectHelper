@@ -40,8 +40,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { ReqUpdateFormComponent } from './components/req-update-form/req-update-form.component';
 
-//Req-Update-Form
+// Req-Update-Form
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
+
+
+// Server
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,10 +81,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     AngularFirestoreModule,
     MatPaginatorModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSortModule,
+    HttpClientModule
   ],
   // entryComponents: [LoginFormComponent],
-  entryComponents: [HomeComponent],
+  entryComponents: [HomeComponent, ReqUpdateFormComponent],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
