@@ -4,6 +4,7 @@ import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/fire
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,21 @@ export class CreateAProjectService {
 
   private dbPath = '/requirements';
 
-  private requirementRef: AngularFirestoreCollection<Requirement>;
-  requirements: Observable<Requirement[]>;
+  public requirementRef: AngularFirestoreCollection<Requirement>;
+  public requirements: Observable<Requirement[]>;
 
   public selected = {
     key: null,
     title: '',
+    description: '',
     type: '',
     price: '',
-    description: '',
+    ownerId: ''
   };
 
-  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth) {
+  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth,
+    public http: HttpClient
+  ) {
     this.requirementRef = db.collection(this.dbPath);
     this.requirements = this.requirementRef.snapshotChanges().pipe(
       map(changes => changes.map(i => {
@@ -39,11 +43,20 @@ export class CreateAProjectService {
   }
 
   createRequirement(requirement: Requirement): void {
-    this.db.collection("requirements/").doc((Math.round(new Date().getTime() / 1000) + "-" + Math.floor((1000 + Math.random() * 9999)).toString()).toString()).set({ ...requirement });
+    // tslint:disable-next-line: max-line-length
+    this.db.collection('requirements/').doc((Math.round(new Date().getTime() / 1000) + '-' + Math.floor((1000 + Math.random() * 9999)).toString()).toString()).set({ ...requirement });
   }
 
-  async updateRequirement(requirement: Requirement) {
-    return await this.requirementRef.doc(requirement.key).update(requirement);
+  async updateRequirement(requirement: Requirement, onResult) {
+    this.http.post("http://localhost:3000/project", {
+      key: requirement.key,
+      title: requirement.title,
+      type: requirement.type,
+      price: requirement.price,
+    }).subscribe((res) => {
+      onResult(res);
+    })
+    //return await this.requirementRef.doc(requirement.key).update(requirement);
   }
 
   deleteRequirement(id: string) {
