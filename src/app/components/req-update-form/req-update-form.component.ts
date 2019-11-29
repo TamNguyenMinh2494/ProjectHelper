@@ -3,6 +3,7 @@ import { CreateAProjectService } from '../../services/create-aproject.service';
 import { from } from 'rxjs';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Requirement } from '../../model/requirement';
 @Component({
   selector: 'app-req-update-form',
   templateUrl: './req-update-form.component.html',
@@ -12,18 +13,16 @@ export class ReqUpdateFormComponent implements OnInit {
 
   constructor(
     public requirementService: CreateAProjectService,
-    private router: Router) { }
+    private router: Router,
+    private dialogRef: MatDialogRef<ReqUpdateFormComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Requirement
+  ) { }
 
 
   ngOnInit() {
   }
 
   onSave() {
-    if (this.requirementService.selected.key == null) {
-      this.router.navigate(['createAProject']);
-    } else {
-      this.requirementService.updateRequirement(this.requirementService.selected);
-    }
+    this.dialogRef.close(this.data);
   }
-
 }
