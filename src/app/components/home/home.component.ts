@@ -3,10 +3,10 @@ import { CreateAProjectService } from '../../services/create-aproject.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
-import { error } from 'util';
 import { MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { ReqUpdateFormComponent } from '../req-update-form/req-update-form.component';
+import { UpdateConfirmDialogComponent } from '../update-confirm-dialog/update-confirm-dialog.component';
 import { Requirement } from 'src/app/model/requirement';
+import { DeleteConfirmDialogComponent } from '../delete-confirm-dialog/delete-confirm-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
         console.log(this.sort);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-      }, 500);
+      }, 200);
     });
 
 
@@ -53,15 +53,19 @@ export class HomeComponent implements OnInit {
 
 
   onUpdate(element: Requirement) {
-    const dialogRef = this.dialog.open(ReqUpdateFormComponent, { width: '500px', data: element });
+    const dialogRef = this.dialog.open(UpdateConfirmDialogComponent, { width: '500px', data: element });
     dialogRef.afterClosed().subscribe((data) => {
       this.requirementService.updateRequirement(data, (res) => {
         alert(res.status);
       });
     });
   }
-  onDelete(key: string) {
-    this.requirementService.deleteRequirement(key);
+  onDelete(requirement: Requirement) {
+    const dialogRef = this.dialog.open(DeleteConfirmDialogComponent, { width: '300px', data: requirement });
+    dialogRef.afterClosed().subscribe((data) => {
+      this.requirementService.deleteRequirement(data, (res) => {
+        alert(res.status);
+      });
+    });
   }
-
 }
