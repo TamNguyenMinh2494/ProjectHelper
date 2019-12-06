@@ -25,7 +25,8 @@ export class CreateAProjectService {
     ownerId: ''
   };
 
-  constructor(private db: AngularFirestore, private afAuth: AngularFireAuth,
+  constructor(
+    private db: AngularFirestore, private afAuth: AngularFireAuth,
     public http: HttpClient
   ) {
     this.requirementRef = db.collection(this.dbPath);
@@ -48,19 +49,27 @@ export class CreateAProjectService {
   }
 
   async updateRequirement(requirement: Requirement, onResult) {
-    this.http.post("http://localhost:3000/project", {
+    this.http.post('http://localhost:3000/project/update', {
       key: requirement.key,
       title: requirement.title,
       type: requirement.type,
       price: requirement.price,
+      description: requirement.description,
     }).subscribe((res) => {
       onResult(res);
-    })
-    //return await this.requirementRef.doc(requirement.key).update(requirement);
+    });
+    // return await this.requirementRef.doc(requirement.key).update(requirement);
   }
 
-  deleteRequirement(id: string) {
-    return this.requirementRef.doc(id).delete();
+  deleteRequirement(requirement: Requirement, onResult) {
+    console.log(requirement);
+    this.http.post('http://localhost:3000/project/delete', {
+      uid: this.afAuth.auth.currentUser.uid,
+      key: requirement.key
+    }).subscribe((res) => {
+      onResult(res);
+    });
+    // return this.requirementRef.doc(id).delete();
   }
 
 }
