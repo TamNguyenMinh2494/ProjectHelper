@@ -24,11 +24,13 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 
+// Components/
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { SigninComponent } from './components/signin/signin.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CreateAProjectComponent } from './create-aproject/create-aproject.component';
+import { UpdateConfirmDialogComponent } from './components/update-confirm-dialog/update-confirm-dialog.component';
 
 // Using for createAProject
 import { MatSelectModule } from '@angular/material/select';
@@ -38,7 +40,7 @@ import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/fi
 // Using for Home
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { ReqUpdateFormComponent } from './components/req-update-form/req-update-form.component';
+// import { ReqUpdateFormComponent } from './components/req-update-form/req-update-form.component';
 
 // Req-Update-Form
 import { MatDialogModule } from '@angular/material/dialog';
@@ -47,6 +49,7 @@ import { MatSortModule } from '@angular/material/sort';
 
 // Server
 import { HttpClientModule } from '@angular/common/http';
+import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +60,9 @@ import { HttpClientModule } from '@angular/common/http';
     SigninComponent,
     SignupComponent,
     CreateAProjectComponent,
-    ReqUpdateFormComponent,
+    // ReqUpdateFormComponent,
+    UpdateConfirmDialogComponent,
+    DeleteConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +91,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   // entryComponents: [LoginFormComponent],
-  entryComponents: [HomeComponent, ReqUpdateFormComponent],
+  entryComponents: [HomeComponent, UpdateConfirmDialogComponent, DeleteConfirmDialogComponent],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
