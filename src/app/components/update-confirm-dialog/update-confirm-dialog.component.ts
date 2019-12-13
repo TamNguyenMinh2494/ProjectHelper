@@ -10,7 +10,8 @@ import { Requirement } from '../../model/requirement';
   styleUrls: ['./update-confirm-dialog.component.scss']
 })
 export class UpdateConfirmDialogComponent implements OnInit {
-
+  Price = ['0 - 1,000,000 VNĐ', '1,000,000 - 5,000,000 VNĐ', '5,000,000 - 10,000,000 VNĐ', '15,000,000 - 20,000,000 VNĐ'];
+  jobsTitle = ['Website', 'Application', 'Design', 'Video', 'Marketing'];
   constructor(
     public requirementService: CreateAProjectService,
     private router: Router,
