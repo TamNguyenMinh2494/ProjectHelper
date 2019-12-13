@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
 
+  hide = true;
   emailInput: string;
   passwordInput: string;
   constructor(
@@ -22,10 +23,9 @@ export class SignupComponent implements OnInit {
 
   signup() {
     this.authService.signup(this.emailInput, this.passwordInput).then(res => {
-      console.log(res);
-      this.router.navigate(['home']);
+      this.router.navigate(['']);
     }, err => {
-      console.log(err);
+      alert("Your email or password was wrong!!!");
     });
   }
 
