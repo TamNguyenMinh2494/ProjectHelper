@@ -38,7 +38,7 @@ export class AuthenticationService {
     await this.angularFireAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
     this.userDetails = this.angularFireAuth.auth.currentUser; // kiểm tra xem user nãy subscribe có phải là nó hong
     this.setUser();
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   async logout() {
@@ -46,7 +46,7 @@ export class AuthenticationService {
       this.userDetails = null;
       this.user = null;
     });
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   async signup(email: string, password: string) {

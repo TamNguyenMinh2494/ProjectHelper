@@ -25,7 +25,7 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
   titleClick() {
-    this.router.navigate(['home']);
+    this.router.navigate(['']);
   }
 
   signinClick() {
