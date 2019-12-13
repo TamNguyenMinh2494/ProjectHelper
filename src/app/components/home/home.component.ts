@@ -7,6 +7,7 @@ import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { UpdateConfirmDialogComponent } from '../update-confirm-dialog/update-confirm-dialog.component';
 import { Requirement } from 'src/app/model/requirement';
 import { DeleteConfirmDialogComponent } from '../delete-confirm-dialog/delete-confirm-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -24,14 +25,14 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private requirementService: CreateAProjectService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public router: Router
   ) { }
 
   ngOnInit() {
     this.requirementService.getAllRequirements().subscribe(res => {
       this.dataSource = new MatTableDataSource(res);
       setTimeout(() => {
-        console.log(this.sort);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
       }, 200);
@@ -49,11 +50,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  checkBox = ['All', 'Website', 'Application', 'Design', 'Video', 'Marketing'];
+  checkBox: string[] = ['All', 'Website', 'Application', 'Design', 'Video', 'Marketing'];
 
 
-  onUpdate(element: Requirement) {
-    const dialogRef = this.dialog.open(UpdateConfirmDialogComponent, { width: '500px', data: element });
+  onUpdate(requirement: Requirement) {
+    const dialogRef = this.dialog.open(UpdateConfirmDialogComponent, { width: '500px', data: requirement });
     dialogRef.afterClosed().subscribe((data) => {
       this.requirementService.updateRequirement(data, (res) => {
         alert(res.status);

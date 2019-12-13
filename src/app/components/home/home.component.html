@@ -16,9 +16,11 @@
     </div>
 
     <div class="requirement-wrapper">
-        <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
-        </mat-form-field>
+        <mat-card id="searchCard">
+            <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
+            </mat-form-field>
+        </mat-card>
 
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
@@ -47,10 +49,10 @@
             </ng-container>
 
             <!-- Actions Column -->
-            <ng-container matColumnDef="Actions">
+            <ng-container matColumnDef="Actions" id="actionElement">
                 <th mat-header-cell *matHeaderCellDef> Action </th>
                 <td mat-cell *matCellDef="let element">
-                    <button (click)="onUpdate(element)">
+                    <button mat-raised-button color="primary" (click)="onUpdate(element)">
                         <mat-icon>edit</mat-icon>Edit
                     </button>&nbsp;
                     <button mat-raised-button color="warn" (click)="onDelete(element)">

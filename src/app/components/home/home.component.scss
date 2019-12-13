@@ -84,8 +84,8 @@ table {
 }
 
 td, th {
-  width: 25%;
-  padding: 5%;
+  width: 20%;
+  padding: 3%;
 }
 td.mat-cell{
   padding: 1%;
@@ -96,4 +96,17 @@ mat-paginator{
   color: white;
   font: 1em bold;
   background-color: #0F9D58;
+}
+
+#searchCard{
+  width: 95%;
+  margin: 3% 0 3% 0;
+}
+#searchCard mat-form-field{
+  width: 100%;
+}
+
+#actionElement{
+  display: flex;
+  flex-direction: row;
 }
