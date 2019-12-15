@@ -15,7 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  totalPage = 0;
   requirements: any;
   displayedColumns: string[] = ['Title', 'Type', 'Price', 'Description', 'Actions'];
   dataSource: MatTableDataSource<Requirement>;
@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private requirementService: CreateAProjectService,
     public dialog: MatDialog,
-    public router: Router
+    public router: Router,
   ) { }
 
   async ngOnInit() {
@@ -37,8 +37,7 @@ export class HomeComponent implements OnInit {
       // this.dataSource.paginator = this.paginator;
     }, 200);
 
-
-
+    this.requirementService.countRequirement().then(data => this.totalPage = Math.ceil(data / 5));
   }
 
 
