@@ -18,7 +18,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="full-width">
-                    <input matInput placeholder="Password*" formControlName="password"
+                    <input matInput placeholder="Password*" formControlName="password" (keyup.enter)="loginUser()"
                         [type]="hide ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                         [attr.aria-pressed]="hide">

@@ -1,0 +1,10 @@
+<mat-toolbar>
+    <mat-toolbar-row>
+        <mat-button-toggle-group style="margin:0 auto;" #group="matButtonToggleGroup"
+            (change)="selectedPage.emit($event)">
+            <mat-button-toggle *ngFor="let page of pages; let i = index" [value]="i" aria-label="Text align left">
+                {{i + 1}}
+            </mat-button-toggle>
+        </mat-button-toggle-group>
+    </mat-toolbar-row>
+</mat-toolbar>

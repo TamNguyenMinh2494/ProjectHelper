@@ -29,18 +29,27 @@ export class CreateAProjectService {
     private db: AngularFirestore, private afAuth: AngularFireAuth,
     public http: HttpClient
   ) {
-    this.requirementRef = db.collection(this.dbPath);
-    this.requirements = this.requirementRef.snapshotChanges().pipe(
-      map(changes => changes.map(i => {
-        const data = i.payload.doc.data() as Requirement;
-        const key = i.payload.doc.id;
-        return { key, ...data };
-      }))
-    );
+    // this.requirementRef = db.collection(this.dbPath);
+    // this.requirements = this.requirementRef.snapshotChanges().pipe(
+    //   map(changes => changes.map(i => {
+    //     const data = i.payload.doc.data() as Requirement;
+    //     const key = i.payload.doc.id;
+    //     return { key, ...data };
+    //   }))
+    // );
   }
 
-  getAllRequirements() {
-    return this.requirements;
+  // getAllRequirements() {
+  //   return this.requirements;
+  // }
+  getPartial(page) {
+
+    return new Promise((resolve, reject) => {
+      this.http.get('http://localhost:3000/project/all/' + page + '/5').subscribe((data) => {
+        resolve(data);
+      });
+    });
+
   }
 
   createRequirement(requirement: Requirement): void {

@@ -45,11 +45,14 @@ import { MatTableModule } from '@angular/material/table';
 // Req-Update-Form
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSortModule } from '@angular/material/sort';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+
 
 
 // Server
 import { HttpClientModule } from '@angular/common/http';
 import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
+import { MyPaginatorComponent } from './components/my-paginator/my-paginator.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,6 +66,7 @@ import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog
     // ReqUpdateFormComponent,
     UpdateConfirmDialogComponent,
     DeleteConfirmDialogComponent,
+    MyPaginatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +92,7 @@ import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog
     MatTableModule,
     MatDialogModule,
     MatSortModule,
-    HttpClientModule
+    HttpClientModule, MatButtonToggleModule
   ],
   // entryComponents: [LoginFormComponent],
   entryComponents: [HomeComponent, UpdateConfirmDialogComponent, DeleteConfirmDialogComponent],

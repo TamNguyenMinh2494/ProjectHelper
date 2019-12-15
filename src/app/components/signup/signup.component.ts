@@ -22,12 +22,12 @@ export class SignupComponent implements OnInit {
   }
 
   signup() {
-    this.authService.signup(this.emailInput, this.passwordInput).then(res => {
-      this.router.navigate(['']);
-    }, err => {
-      alert("Your email or password was wrong!!!");
-    });
+    if (this.emailInput != null && this.passwordInput != null) {
+      this.authService.signup(this.emailInput, this.passwordInput).then(res => {
+        location.href = '/';
+      }, err => {
+        alert(err);
+      });
+    }
   }
-
-
 }

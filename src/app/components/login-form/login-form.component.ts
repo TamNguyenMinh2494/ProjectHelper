@@ -35,7 +35,7 @@ export class LoginFormComponent implements OnInit {
   async loginUser() {
     await this.userDetails.login(this.email.value, this.password.value)
       .then(res => {
-        this.router.navigate(['']);
+        location.href = '/';
       }, err => {
         alert(err.message);
       });

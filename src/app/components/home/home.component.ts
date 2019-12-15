@@ -29,14 +29,14 @@ export class HomeComponent implements OnInit {
     public router: Router
   ) { }
 
-  ngOnInit() {
-    this.requirementService.getAllRequirements().subscribe(res => {
-      this.dataSource = new MatTableDataSource(res);
-      setTimeout(() => {
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      }, 200);
-    });
+  async ngOnInit() {
+
+    this.dataSource = new MatTableDataSource((await this.requirementService.getPartial(0)) as Array<Requirement>);
+    setTimeout(() => {
+      this.dataSource.sort = this.sort;
+      // this.dataSource.paginator = this.paginator;
+    }, 200);
+
 
 
   }
@@ -45,9 +45,9 @@ export class HomeComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
+    // if (this.dataSource.paginator) {
+    //   this.dataSource.paginator.firstPage();
+    // }
   }
 
   checkBox: string[] = ['All', 'Website', 'Application', 'Design', 'Video', 'Marketing'];
@@ -57,7 +57,13 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(UpdateConfirmDialogComponent, { width: '500px', data: requirement });
     dialogRef.afterClosed().subscribe((data) => {
       this.requirementService.updateRequirement(data, (res) => {
-        alert(res.status);
+        if (res.status === 'Update Successfully') {
+          alert(res.status);
+        } else {
+          alert(res.status);
+          location.href = '/';
+
+        }
       });
     });
   }
@@ -68,5 +74,13 @@ export class HomeComponent implements OnInit {
         alert(res.status);
       });
     });
+  }
+
+  async onSelectedPage(page) {
+    this.dataSource = new MatTableDataSource((await this.requirementService.getPartial(page)) as Array<Requirement>);
+    setTimeout(() => {
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+    }, 200);
   }
 }

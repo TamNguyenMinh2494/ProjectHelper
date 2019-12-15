@@ -28,21 +28,27 @@ export class CreateAProjectComponent implements OnInit {
 
   }
 
-  newRequirement(): void {
-    this.submitted = false;
-    this.requirement = new Requirement();
-  }
+  // save() {
 
-  save() {
-    this.requirement.ownerId = this.afAuth.auth.currentUser.uid;
-    this.requirementService.createRequirement(this.requirement);
-    this.requirement = new Requirement();
-  }
+  //     this.requirement.ownerId = this.afAuth.auth.currentUser.uid;
+  //     this.requirementService.createRequirement(this.requirement);
+  //   }
+  // }
   onSubmit() {
-    this.submitted = true;
-    this.save();
-    this.router.navigate(['']);
-
+    if (this.enableSubmit()) {
+      this.submitted = true;
+      this.requirement.ownerId = this.afAuth.auth.currentUser.uid;
+      this.requirementService.createRequirement(this.requirement);
+      location.href = '/';
+    } else {
+      alert('Create failed!!!');
+    }
+  }
+  enableSubmit() {
+    // tslint:disable-next-line: triple-equals
+    if (this.requirement.title == '' && this.requirement.type == '' && this.requirement.price == '' && this.requirement.description == '') {
+      return false;
+    } else { return true; }
   }
 
 }
