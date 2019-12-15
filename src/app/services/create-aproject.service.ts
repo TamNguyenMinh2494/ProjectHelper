@@ -12,7 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreateAProjectService {
 
   private dbPath = '/requirements';
-
+  endpoint = 'http://localhost:3000/';
   public requirementRef: AngularFirestoreCollection<Requirement>;
   public requirements: Observable<Requirement[]>;
 
@@ -45,15 +45,21 @@ export class CreateAProjectService {
   getPartial(page) {
 
     return new Promise((resolve, reject) => {
-      this.http.get('http://localhost:3000/project/all/' + page + '/5').subscribe((data) => {
+      this.http.get(this.endpoint + 'project/all/' + page + '/5').subscribe((data) => {
         resolve(data);
       });
     });
 
   }
+  countRequirement() {
+    return new Promise<number>((resolve, reject) => {
+      this.http.get(this.endpoint + 'project/quantity').subscribe(data =>
+        resolve(parseInt(data.toString())));
+    });
+  }
 
   createRequirement(requirement: Requirement): void {
-    this.http.post('http://localhost:3000/project/create', {
+    this.http.post(this.endpoint + 'project/create', {
       title: requirement.title,
       type: requirement.type,
       price: requirement.price,
@@ -67,7 +73,7 @@ export class CreateAProjectService {
   }
 
   async updateRequirement(requirement: Requirement, onResult) {
-    this.http.post('http://localhost:3000/project/update', {
+    this.http.post(this.endpoint + 'project/update', {
       key: requirement.key,
       title: requirement.title,
       type: requirement.type,
@@ -82,7 +88,7 @@ export class CreateAProjectService {
 
   deleteRequirement(requirement: Requirement, onResult) {
     console.log(requirement);
-    this.http.post('http://localhost:3000/project/delete', {
+    this.http.post(this.endpoint + 'project/delete', {
       uid: this.afAuth.auth.currentUser.uid, // Xét ownerId hiện tại khớp với id của item cần xóa thì sẽ hợp lệ
       key: requirement.key
     }).subscribe((res) => {
