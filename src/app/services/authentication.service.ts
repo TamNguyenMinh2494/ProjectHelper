@@ -28,10 +28,7 @@ export class AuthenticationService {
   // gán chi tiết về user vào các thuộc tính tương ứng
   private setUser() {
     this.user = {
-      uid: this.userDetails.uid,
-      displayName: this.userDetails.displayName,
-      email: this.userDetails.email,
-      photoURL: this.userDetails.photoURL
+      ...this.userDetails
     };
   }
   async loginWithGoogle() {
