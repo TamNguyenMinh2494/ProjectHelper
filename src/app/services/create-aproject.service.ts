@@ -12,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 export class CreateAProjectService {
 
   private dbPath = '/requirements';
+  // endpoint = 'https://playground-238510.appspot.com/';
   endpoint = 'http://localhost:3000/';
   public requirementRef: AngularFirestoreCollection<Requirement>;
   public requirements: Observable<Requirement[]>;
@@ -46,7 +47,13 @@ export class CreateAProjectService {
 
     return new Promise((resolve, reject) => {
       this.http.get(this.endpoint + 'project/all/' + page + '/5').subscribe((data) => {
-        resolve(data);
+        const record = data as Array<any>;
+        resolve(record.map((entity) => {
+          return {
+            ...entity,
+            key: entity.id
+          };
+        }));
       });
     });
 
@@ -73,6 +80,7 @@ export class CreateAProjectService {
   }
 
   async updateRequirement(requirement: Requirement, onResult) {
+    console.log(requirement.key);
     this.http.post(this.endpoint + 'project/update', {
       key: requirement.key,
       title: requirement.title,
