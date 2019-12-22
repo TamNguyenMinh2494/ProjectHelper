@@ -70,7 +70,14 @@ export class HomeComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteConfirmDialogComponent, { width: '300px', data: requirement });
     dialogRef.afterClosed().subscribe((data) => {
       this.requirementService.deleteRequirement(data, (res) => {
-        alert(res.status);
+        if (res.status === 'Delete Successfully') {
+          alert(res.status);
+          location.href = '/';
+        } else {
+          alert(res.status);
+
+        }
+
       });
     });
   }
