@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { DeleteConfirmDialogComponent } from './delete-confirm-dialog.component';
+import { DeleteConfirmDialogComponent } from "./delete-confirm-dialog.component";
 
-describe('DeleteConfirmDialogComponent', () => {
+describe("DeleteConfirmDialogComponent", () => {
   let component: DeleteConfirmDialogComponent;
   let fixture: ComponentFixture<DeleteConfirmDialogComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteConfirmDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [DeleteConfirmDialogComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('DeleteConfirmDialogComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

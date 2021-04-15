@@ -1,67 +1,70 @@
 <app-navigation></app-navigation>
 <div *ngIf="dataSource == undefined">
-    <section>
-        <div class='sk-three-bounce'>
-            <div class='sk-bounce-1 sk-child'></div>
-            <div class='sk-bounce-2 sk-child'></div>
-            <div class='sk-bounce-3 sk-child'></div>
-        </div>
-    </section>
+  <section>
+    <div class="sk-three-bounce">
+      <div class="sk-bounce-1 sk-child"></div>
+      <div class="sk-bounce-2 sk-child"></div>
+      <div class="sk-bounce-3 sk-child"></div>
+    </div>
+  </section>
 </div>
 <div class="home-wrapper" *ngIf="dataSource != undefined">
-    <div class="checkbox-wrapper">
-        <mat-card id="checkbox-card" class="mat-elevation-z8">
-            <mat-checkbox *ngFor="let i of checkBox">{{i}}</mat-checkbox>
-        </mat-card>
-    </div>
+  <div class="checkbox-wrapper">
+    <mat-card id="checkbox-card" class="mat-elevation-z8">
+      <mat-checkbox *ngFor="let i of checkBox">{{ i }}</mat-checkbox>
+    </mat-card>
+  </div>
 
-    <div class="requirement-wrapper">
-        <mat-card id="searchCard" class="mat-elevation-z8">
-            <mat-form-field>
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search...">
-            </mat-form-field>
-        </mat-card>
+  <div class="requirement-wrapper">
+    <mat-card id="searchCard" class="mat-elevation-z8">
+      <mat-form-field>
+        <input
+          matInput
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="Search..."
+        />
+      </mat-form-field>
+    </mat-card>
 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z3" matSort>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z3" matSort>
+      <!-- Title Column -->
+      <ng-container matColumnDef="Title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
 
-            <!-- Title Column -->
-            <ng-container matColumnDef="Title">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
-                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
-            </ng-container>
+      <!-- Type Column -->
+      <ng-container matColumnDef="Type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+      </ng-container>
 
-            <!-- Type Column -->
-            <ng-container matColumnDef="Type">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
-                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-            </ng-container>
+      <!-- Price Column -->
+      <ng-container matColumnDef="Price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+      </ng-container>
 
-            <!-- Price Column -->
-            <ng-container matColumnDef="Price">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
-                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-            </ng-container>
+      <!-- Description Column -->
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
 
-            <!-- Description Column -->
-            <ng-container matColumnDef="Description">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-            </ng-container>
+      <!-- Actions Column -->
+      <ng-container matColumnDef="Actions" id="actionElement">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="onUpdate(element)">
+            <mat-icon>edit</mat-icon></button
+          >&nbsp;
+          <button mat-raised-button color="warn" (click)="onDelete(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
 
-            <!-- Actions Column -->
-            <ng-container matColumnDef="Actions" id="actionElement">
-                <th mat-header-cell *matHeaderCellDef> Action</th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-raised-button color="primary" (click)="onUpdate(element)">
-                        <mat-icon>edit</mat-icon>
-                    </button>&nbsp;
-                    <button mat-raised-button color="warn" (click)="onDelete(element)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                </td>
-            </ng-container>
-
-            <!-- <ng-container matColumnDef="Actions" id="actionElement" *ngIf="">
+      <!-- <ng-container matColumnDef="Actions" id="actionElement" *ngIf="">
                 <th mat-header-cell *matHeaderCellDef> Action</th>
                 <td mat-cell *matCellDef="let element">
                     <button mat-raised-button color="primary" (click)="onUpdate(element)">
@@ -73,10 +76,13 @@
                 </td>
             </ng-container> -->
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-        <!-- <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
-        <app-my-paginator [totalPage]="totalPage" (selectedPage)="onSelectedPage($event.value)"></app-my-paginator>
-    </div>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <!-- <mat-paginator class="mat-elevation-z8" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+    <app-my-paginator
+      [totalPage]="totalPage"
+      (selectedPage)="onSelectedPage($event.value)"
+    ></app-my-paginator>
+  </div>
 </div>

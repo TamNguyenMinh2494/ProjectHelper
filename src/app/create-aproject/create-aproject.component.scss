@@ -1,28 +1,27 @@
-mat-card{
-    max-width: 100%;
-//   display: flex;
-//   flex-direction: row;
+mat-card {
+  max-width: 100%;
+  //   display: flex;
+  //   flex-direction: row;
   padding: 16px;
   margin: 20px;
   border-radius: 5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
-mat-card-header{
-    color: #0F9D58;
-    font-size: 5vh;
-    justify-content: center;
+mat-card-header {
+  color: #0f9d58;
+  font-size: 5vh;
+  justify-content: center;
 }
 
-mat-card-content{
-    width: 100%;
+mat-card-content {
+  width: 100%;
 }
 
-mat-slider{
-    width: 100%;
+mat-slider {
+  width: 100%;
 }
-mat-card-content mat-form-field{
-    display: inline;
+mat-card-content mat-form-field {
+  display: inline;
 }
-
-

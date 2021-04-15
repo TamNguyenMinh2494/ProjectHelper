@@ -1,35 +1,55 @@
 <div>
-    <app-navigation></app-navigation>
+  <app-navigation></app-navigation>
 
-    <mat-card>
-        <div class="signup-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card>
+    <div class="signup-wrapper" fxLayout="row" fxLayoutAlign="center center">
+      <mat-card-header>
+        <mat-card-title>Register</mat-card-title>
+      </mat-card-header>
 
-            <mat-card-header>
-                <mat-card-title>Register</mat-card-title>
-            </mat-card-header>
+      <form class="form">
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [(ngModel)]="emailInput"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Email"
+              required
+            />
+          </mat-form-field>
 
-            <form class="form">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              [(ngModel)]="passwordInput"
+              [ngModelOptions]="{ standalone: true }"
+              placeholder="Password"
+              [type]="hide ? 'password' : 'text'"
+              required
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </mat-card-content>
 
-                <mat-card-content>
-                    <mat-form-field class="full-width">
-                        <input matInput [(ngModel)]="emailInput" [ngModelOptions]="{standalone: true}"
-                            placeholder="Email" required>
-                    </mat-form-field>
-
-                    <mat-form-field class="full-width">
-                        <input matInput [(ngModel)]="passwordInput" [ngModelOptions]="{standalone: true}"
-                            placeholder="Password" [type]="hide ? 'password' : 'text'" required>
-                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                            [attr.aria-pressed]="hide">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
-                    </mat-form-field>
-                </mat-card-content>
-
-                <button mat-stroked-button color="accent" type="submit" class="btn-register"
-                    (click)="signup()">Register</button>
-            </form>
-
-        </div>
-    </mat-card>
+        <button
+          mat-stroked-button
+          color="accent"
+          type="submit"
+          class="btn-register"
+          (click)="signup()"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  </mat-card>
 </div>
