@@ -1,23 +1,23 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 mat-toolbar-row {
-  background-color: #0F9D58;
+  background-color: #0f9d58;
   color: #ffffff;
   position: fixed;
 }
 
-button{
+button {
   outline: none;
 }
 
-#btnSignin, #btnSignup{
+#btnSignin,
+#btnSignup {
   width: 50px;
   height: 50px;
   color: #ffffff;
- 
 }
 
-.userLoggedin{
+.userLoggedin {
   width: 50px;
   height: 50px;
   border-radius: 25px;
@@ -33,11 +33,10 @@ button{
   align-items: center;
   justify-content: center;
 }
-#userInfo{
+#userInfo {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
 }
 #userInfo img {
   justify-content: center;
@@ -50,7 +49,6 @@ button{
   outline: none;
 }
 
-#btncreateAProject{
+#btncreateAProject {
   margin-left: 5px;
 }
-

@@ -1,34 +1,58 @@
 <app-navigation></app-navigation>
 <mat-card [hidden]="submitted">
-    <mat-card-header>Create your requirement</mat-card-header>
-    <form (ngSubmit)="onSubmit()">
-        <mat-card-content>
-            <mat-form-field (click)="value=''">
-                <input matInput placeholder="Title" [(ngModel)]="requirement.title" name="title"
-                    [ngModelOptions]="{standalone: true}" required>
-            </mat-form-field>
+  <mat-card-header>Create your requirement</mat-card-header>
+  <form (ngSubmit)="onSubmit()">
+    <mat-card-content>
+      <mat-form-field (click)="value = ''">
+        <input
+          matInput
+          placeholder="Title"
+          [(ngModel)]="requirement.title"
+          name="title"
+          [ngModelOptions]="{ standalone: true }"
+          required
+        />
+      </mat-form-field>
 
-            <mat-form-field>
-                <textarea matInput placeholder="Description" [(ngModel)]="requirement.description" name="description"
-                    required></textarea>
-            </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          placeholder="Description"
+          [(ngModel)]="requirement.description"
+          name="description"
+          required
+        ></textarea>
+      </mat-form-field>
 
-            <mat-form-field>
-                <mat-select placeholder="Type" [(ngModel)]="requirement.type" name="type" required>
-                    <mat-option value="{{i}}" *ngFor="let i of jobsTitle">{{i}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field>
-                <mat-select placeholder="Price" [(ngModel)]="requirement.price" name="price" required>
-                    <mat-option value="{{i}}" *ngFor="let i of Price">{{i}}</mat-option>
-                </mat-select>
-                <!-- <input matInput type="number" placeholder="Price" [(ngModel)]="requirement.price" name="price" /> -->
-            </mat-form-field>
-        </mat-card-content>
+      <mat-form-field>
+        <mat-select
+          placeholder="Type"
+          [(ngModel)]="requirement.type"
+          name="type"
+          required
+        >
+          <mat-option value="{{ i }}" *ngFor="let i of jobsTitle">{{
+            i
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-select
+          placeholder="Price"
+          [(ngModel)]="requirement.price"
+          name="price"
+          required
+        >
+          <mat-option value="{{ i }}" *ngFor="let i of Price">{{
+            i
+          }}</mat-option>
+        </mat-select>
+        <!-- <input matInput type="number" placeholder="Price" [(ngModel)]="requirement.price" name="price" /> -->
+      </mat-form-field>
+    </mat-card-content>
 
-        <mat-card-content>
-            <button type="submit" mat-raised-button color="primary">Submit</button>
-        </mat-card-content>
-
-    </form>
+    <mat-card-content>
+      <button type="submit" mat-raised-button color="primary">Submit</button>
+    </mat-card-content>
+  </form>
 </mat-card>

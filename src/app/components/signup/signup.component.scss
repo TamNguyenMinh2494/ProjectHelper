@@ -1,51 +1,49 @@
-mat-card{
-    max-width: 100%;
-    display: flex;
-    width: 300px;
-    margin: 10% auto;
-  }
-.signup-wrapper{
-    padding: 5%;
-    width: 60%;
-    flex: 2;
-    margin: 0 auto;
-    justify-items: center;
+mat-card {
+  max-width: 100%;
+  display: flex;
+  width: 300px;
+  margin: 10% auto;
+}
+.signup-wrapper {
+  padding: 5%;
+  width: 60%;
+  flex: 2;
+  margin: 0 auto;
+  justify-items: center;
 }
 
-.box{
-    width:100%;
-    background:#fff;
-    border-radius:10px;
+.box {
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
 }
-.signup-wrapper form{
-    width:100%;
+.signup-wrapper form {
+  width: 100%;
 }
-.full-width{
-    width: 100%;
-    color: #0F9D58;
-}
-
-
-
-.signup-wrapper mat-card-header{
-    text-align:center;
-    width:100%;
-    display:block;
-    font-weight:700;
+.full-width {
+  width: 100%;
+  color: #0f9d58;
 }
 
-.signup-wrapper mat-card-header mat-card-title{
-    font-size: 200%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
+.signup-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
 }
 
-.signup-wrapper .mat-stroked-button{
-    width: 100%;
-    border:1px solid currentColor;
-    line-height:50px;
-    //background:#ffce44;
-    border-radius: 25px;
-    margin-top: 20px;
-    outline: none;
+.signup-wrapper mat-card-header mat-card-title {
+  font-size: 200%;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: black;
+}
+
+.signup-wrapper .mat-stroked-button {
+  width: 100%;
+  border: 1px solid currentColor;
+  line-height: 50px;
+  //background:#ffce44;
+  border-radius: 25px;
+  margin-top: 20px;
+  outline: none;
 }

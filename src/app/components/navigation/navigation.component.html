@@ -1,72 +1,114 @@
 <mat-toolbar class="mat-elevation-z6">
-    <mat-toolbar-row>
-        <span style="cursor: pointer;" (click)="titleClick()">Project Helper</span>
-        <span style="flex:auto;"></span>
-        <div id="btnLog">
-            <!--Chưa có ai đăng nhập thì hiện nút cho đăng nhập / đăng ký-->
-            <div *ngIf="userDetails == null">
-                <a [routerLink]="'/signin'" (click)="signinClick()" routerLinkActive="active" id="btnSignin">
-                    <button mat-button>Sign In</button>
-                </a>
-                <a [routerLink]="'/signup'" (click)="signupClick()" routerLinkActive="active" id="btnSignup">
-                    <button mat-button>Sign Up</button>
-                </a>
+  <mat-toolbar-row>
+    <span style="cursor: pointer" (click)="titleClick()">Project Helper</span>
+    <span style="flex: auto"></span>
+    <div id="btnLog">
+      <!--Chưa có ai đăng nhập thì hiện nút cho đăng nhập / đăng ký-->
+      <div *ngIf="userDetails == null">
+        <a
+          [routerLink]="'/signin'"
+          (click)="signinClick()"
+          routerLinkActive="active"
+          id="btnSignin"
+        >
+          <button mat-button>Sign In</button>
+        </a>
+        <a
+          [routerLink]="'/signup'"
+          (click)="signupClick()"
+          routerLinkActive="active"
+          id="btnSignup"
+        >
+          <button mat-button>Sign Up</button>
+        </a>
+      </div>
+
+      <!--Đăng nhập rồi, hiện ảnh đại diện thôi-->
+      <div *ngIf="userDetails != null">
+        <!--Hiển thị ảnh giống Gmail khi signin với Google-->
+        <button
+          mat-button
+          [matMenuTriggerFor]="menu"
+          id="btnPhoto"
+          style="height: 50px; width: 50px; outline: none"
+          *ngIf="userDetails.photoURL != null"
+        >
+          <img class="userLoggedin" [src]="userDetails.photoURL" alt="" />
+        </button>
+
+        <!--Hiển thị ảnh mặc định khi không signin với Google-->
+        <button
+          mat-button
+          [matMenuTriggerFor]="menu"
+          id="btnPhoto"
+          style="height: 50px; width: 50px; outline: none"
+          *ngIf="userDetails.photoURL == null"
+        >
+          <img
+            class="userLoggedin"
+            src="https://image.flaticon.com/icons/svg/145/145845.svg"
+            alt=""
+          />
+        </button>
+
+        <a
+          [routerLink]="'/createAProject'"
+          (click)="createAProjectClick()"
+          routerLinkActive="active"
+        >
+          <button
+            mat-button
+            mat-raised-button
+            color="Accent"
+            id="btncreateAProject"
+          >
+            Create A Project
+          </button>
+        </a>
+
+        <!--Bấm vào ảnh đại diện, hiện thông tin-->
+        <mat-menu #menu="matMenu" xPosition="before">
+          <div style="padding: 10px 20px 10px 20px">
+            <!--Nếu signin với Googe thì hiện ảnh theo Gmail-->
+            <div id="userInfo" *ngIf="userDetails.photoURL != null">
+              <img [src]="userDetails.photoURL" alt="" style="margin: 0 auto" />
+              <div style="margin-top: 5%">
+                <p style="text-align: center">
+                  <b>{{ userDetails.displayName }}</b>
+                </p>
+                <p style="text-align: center; word-wrap: break-word">
+                  {{ userDetails.email }}
+                </p>
+              </div>
             </div>
 
-            <!--Đăng nhập rồi, hiện ảnh đại diện thôi-->
-            <div *ngIf="userDetails!=null">
-
-                <!--Hiển thị ảnh giống Gmail khi signin với Google-->
-                <button mat-button [matMenuTriggerFor]="menu" id="btnPhoto"
-                    style="height: 50px; width: 50px; outline: none;" *ngIf="userDetails.photoURL != null">
-                    <img class="userLoggedin" [src]="userDetails.photoURL" alt="" />
-                </button>
-
-                <!--Hiển thị ảnh mặc định khi không signin với Google-->
-                <button mat-button [matMenuTriggerFor]="menu" id="btnPhoto"
-                    style="height: 50px; width: 50px; outline: none;" *ngIf="userDetails.photoURL == null">
-                    <img class="userLoggedin" src="https://image.flaticon.com/icons/svg/145/145845.svg" alt="" />
-                </button>
-
-                <a [routerLink]="'/createAProject'" (click)="createAProjectClick()" routerLinkActive="active">
-                    <button mat-button mat-raised-button color="Accent" id="btncreateAProject">Create A Project</button>
-                </a>
-
-                <!--Bấm vào ảnh đại diện, hiện thông tin-->
-                <mat-menu #menu="matMenu" xPosition="before">
-                    <div style="padding: 10px 20px 10px 20px">
-
-                        <!--Nếu signin với Googe thì hiện ảnh theo Gmail-->
-                        <div id="userInfo" *ngIf="userDetails.photoURL != null">
-                            <img [src]="userDetails.photoURL" alt="" style="margin: 0 auto;" />
-                            <div style="margin-top: 5%;">
-                                <p style="text-align:center;"><b>{{ userDetails.displayName }}</b></p>
-                                <p style="text-align:center; word-wrap: break-word;">
-                                    {{ userDetails.email }}</p>
-                            </div>
-                        </div>
-
-                        <!--Nếu không signin với Google thì hiện ảnh mặc định-->
-                        <div id="userInfo" *ngIf="userDetails.photoURL == null">
-                            <img src="https://image.flaticon.com/icons/svg/145/145845.svg" alt=""
-                                style="margin: 0 auto;" />
-                            <div style="margin-top: 5%;">
-                                <p style="text-align:center;"><b>{{ userDetails.displayName }}</b></p>
-                                <p style="text-align:center; word-wrap: break-word;">
-                                    {{ userDetails.email }}</p>
-                            </div>
-                        </div>
-
-                        <div (click)="googleLogout()" style="margin-left: 5%;">
-                            <img src="https://image.flaticon.com/icons/svg/1250/1250678.svg"
-                                style="width: 25px; height: 25px;" />
-                            <button mat-button>Sign out</button>
-
-                        </div>
-                    </div>
-                </mat-menu>
+            <!--Nếu không signin với Google thì hiện ảnh mặc định-->
+            <div id="userInfo" *ngIf="userDetails.photoURL == null">
+              <img
+                src="https://image.flaticon.com/icons/svg/145/145845.svg"
+                alt=""
+                style="margin: 0 auto"
+              />
+              <div style="margin-top: 5%">
+                <p style="text-align: center">
+                  <b>{{ userDetails.displayName }}</b>
+                </p>
+                <p style="text-align: center; word-wrap: break-word">
+                  {{ userDetails.email }}
+                </p>
+              </div>
             </div>
-        </div>
-    </mat-toolbar-row>
 
+            <div (click)="googleLogout()" style="margin-left: 5%">
+              <img
+                src="https://image.flaticon.com/icons/svg/1250/1250678.svg"
+                style="width: 25px; height: 25px"
+              />
+              <button mat-button>Sign out</button>
+            </div>
+          </div>
+        </mat-menu>
+      </div>
+    </div>
+  </mat-toolbar-row>
 </mat-toolbar>
