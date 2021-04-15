@@ -1,14 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: 'app-my-paginator',
-  templateUrl: './my-paginator.component.html',
-  styleUrls: ['./my-paginator.component.scss']
+  selector: "app-my-paginator",
+  templateUrl: "./my-paginator.component.html",
+  styleUrls: ["./my-paginator.component.scss"],
 })
 export class MyPaginatorComponent implements OnInit {
-
-  constructor() { }
-
+  constructor() {}
 
   @Input()
   set totalPage(page) {
@@ -20,7 +18,5 @@ export class MyPaginatorComponent implements OnInit {
   @Output()
   selectedPage = new EventEmitter<number>();
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
