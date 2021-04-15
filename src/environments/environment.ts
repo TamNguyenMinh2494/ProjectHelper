@@ -11,8 +11,8 @@ export const environment = {
     projectId: "uploadfile-85eef",
     storageBucket: "uploadfile-85eef.appspot.com",
     messagingSenderId: "724239810594",
-    appId: "1:724239810594:web:453ea2ef3f52d145"
-  }
+    appId: "1:724239810594:web:453ea2ef3f52d145",
+  },
 };
 
 /*

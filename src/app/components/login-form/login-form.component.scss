@@ -1,8 +1,7 @@
 // .login-form{
 //   display: flex;
-  
-// }
 
+// }
 
 // .login-wrapper{
 //   padding: 5%;
@@ -60,7 +59,7 @@
 //   align-items: center;
 // }
 
-mat-card{
+mat-card {
   max-width: 100%;
   display: flex;
   width: 300px;
@@ -69,31 +68,31 @@ mat-card{
 
 .full-width {
   width: 100%;
-  color: #0F9D58;
+  color: #0f9d58;
   // min-width: 300px;
 }
 
-.login-wrapper{
+.login-wrapper {
   justify-content: center;
 }
 
-mat-card-header{
-  font-family: Georgia, 'Times New Roman', Times, serif;
+mat-card-header {
+  font-family: Georgia, "Times New Roman", Times, serif;
   // font-weight: 100pt;
   display: flex;
   justify-content: center;
 }
 
-.btnLogin{
+.btnLogin {
   outline: none;
   border-radius: 25px;
   width: 100px;
-  margin-left: 10%; 
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-left: 10%;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 15px;
 }
 
-.iconGG{
+.iconGG {
   width: 25px;
   height: 25px;
 }
