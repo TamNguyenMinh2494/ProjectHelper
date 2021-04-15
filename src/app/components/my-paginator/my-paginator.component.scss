@@ -1,22 +1,21 @@
 .example-icon {
-    padding: 0 14px;
-  }
-  
-  .example-spacer {
-    flex: 1 1 auto;
-  }
-  mat-toolbar {
-    width: 95%;
-  }
-  mat-toolbar-row {
-    width: 100%;
-    color: white;
-    font: 1em bold;
-    background-color: #0F9D58;
-    outline: none;
-  }
-  mat-button-toggle {
-    outline: none;
-    margin-left: 5px;
-  }
-  
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar {
+  width: 95%;
+}
+mat-toolbar-row {
+  width: 100%;
+  color: white;
+  font: 1em bold;
+  background-color: #0f9d58;
+  outline: none;
+}
+mat-button-toggle {
+  outline: none;
+  margin-left: 5px;
+}

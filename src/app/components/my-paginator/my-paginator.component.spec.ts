@@ -1,16 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MyPaginatorComponent } from './my-paginator.component';
+import { MyPaginatorComponent } from "./my-paginator.component";
 
-describe('MyPaginatorComponent', () => {
+describe("MyPaginatorComponent", () => {
   let component: MyPaginatorComponent;
   let fixture: ComponentFixture<MyPaginatorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MyPaginatorComponent ]
-    })
-    .compileComponents();
+      declarations: [MyPaginatorComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +18,7 @@ describe('MyPaginatorComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
